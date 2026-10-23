@@ -788,7 +788,7 @@
 
             if (cta) {
                 const lines = [
-                    `Hola JP3 Solar, mi recibo de luz es de aproximadamente ${money.format(r.bimonthly)} bimestrales (${r.uso}).`,
+                    `Hola JGP3 Solar, mi recibo de luz es de aproximadamente ${money.format(r.bimonthly)} bimestrales (${r.uso}).`,
                     `La calculadora sugiere unos ${r.kwp.toFixed(1)} kWp (${r.panels} paneles)${battery.checked ? ' con respaldo de baterías de litio' : ''}.`,
                     'Estoy listo, quiero mi cotización.'
                 ];
@@ -842,7 +842,7 @@
             const interests = $$('input[name="interes"]:checked', form).map((i) => i.value);
             const project = form.elements.proyecto.value;
             const msg = form.elements.mensaje.value.trim();
-            const lines = [`Hola JP3 Solar, soy ${name.value.trim()}.`];
+            const lines = [`Hola JGP3 Solar, soy ${name.value.trim()}.`];
             lines.push(`Me interesa: ${interests.length ? interests.join(', ') : 'información general sobre energía solar'}.`);
             if (project) lines.push(`Tipo de proyecto: ${project}.`);
             if (msg) lines.push(`Detalles: ${msg}`);
@@ -879,6 +879,7 @@
         const title = $('#lb-title');
         const desc = $('#lb-desc');
         const cta = $('#lb-cta');
+        const sheet = $('#lb-sheet');
         let index = 0;
 
         const render = (i) => {
@@ -891,7 +892,8 @@
             img.height = src.height;
             title.textContent = p.dataset.name;
             desc.textContent = p.dataset.desc;
-            cta.href = waUrl(`Hola JP3 Solar, quiero cotizar: ${p.dataset.name}.`);
+            cta.href = waUrl(`Hola JGP3 Solar, quiero cotizar: ${p.dataset.name}.`);
+            sheet.href = waUrl(`Hola JGP3 Solar, quiero solicitar la ficha técnica de: ${p.dataset.name}.`);
         };
         plates.forEach((p, i) => p.addEventListener('click', () => {
             render(i);
